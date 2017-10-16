@@ -1,7 +1,49 @@
-{{title}}
-<form method="POST" action="/play">
-  <label for="playerMove"></label>
-  <input type="text" name="playerMove" />
-</form>
-{{result}}
-<!-- <script src="index.js"></script> -->
+<div id="rps">
+
+<h1 class="animated infinite pulse">{{title}}</h1>
+Please enter 'Rock', 'Paper' or 'Scissors':
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <form method="POST" action="/play" class="form-group">
+        <label for="playerMove"></label>
+        <input type="text" name="playerMove" class="form-control" />
+        <br />
+        <input type="submit" class="btn btn-danger" onclick="toggle1() toggle2()"/>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <h2 id="you">You chose:</h2>
+      <img src={{pic1}} />
+    </div>
+    <div class="col-lg-6">
+      <h2 id="comp">I chose:</h2>
+      <img src={{pic2}} />
+    </div>
+  </div>
+</div>
+<h3>{{result}}</h3>
+</div>
+<script>
+//why is this not working?
+
+  function toggleDisplay(id) {
+    var x = document.getElementById(id);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  function toggle1() {
+    toggleDisplay("you");
+  }
+  function toggle2() {
+    toggleDisplay("comp");
+  }
+</script>

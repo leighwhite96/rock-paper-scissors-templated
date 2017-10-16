@@ -7,13 +7,10 @@ var generator = function generateComputerMove(){
   var randomNumber = Math.random();
   if (randomNumber < 0.33) {
     computerMove = "Rock";
-    console.log("I chose Rock");
   } else if (randomNumber < 0.66) {
     computerMove = "Paper";
-    console.log("I chose Paper");
   } else {
     computerMove = "Scissors";
-    console.log("I chose Scissors");
   }
   return computerMove;
 }
