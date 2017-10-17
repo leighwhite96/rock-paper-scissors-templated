@@ -1,4 +1,4 @@
-var generator = function generateComputerMove(){
+function generateComputerMove(){
   // if (playerMove != "Rock" && playerMove != "Paper" && playerMove != "Scissors") {
   //   console.log("Hey, that's not one of the options! Play the game properly, please :( ");
   // } else {
@@ -15,4 +15,4 @@ var generator = function generateComputerMove(){
   return computerMove;
 }
 
-module.exports = generator;
+module.exports = generateComputerMove;

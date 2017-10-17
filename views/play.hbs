@@ -9,7 +9,7 @@ Please enter 'Rock', 'Paper' or 'Scissors':
         <label for="playerMove"></label>
         <input type="text" name="playerMove" class="form-control" />
         <br />
-        <input type="submit" class="btn btn-danger" onclick="toggle1() toggle2()"/>
+        <input type="submit" class="btn btn-danger" />
       </form>
     </div>
   </div>
@@ -27,23 +27,24 @@ Please enter 'Rock', 'Paper' or 'Scissors':
   </div>
 </div>
 <h3>{{result}}</h3>
+<h3>{{playerScore}}{{dash}}{{computerScore}}</h3>
 </div>
 <script>
 //why is this not working?
 
-  function toggleDisplay(id) {
-    var x = document.getElementById(id);
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
-
-  function toggle1() {
-    toggleDisplay("you");
-  }
-  function toggle2() {
-    toggleDisplay("comp");
-  }
+  // function toggleDisplay(id) {
+  //   var x = document.getElementById(id);
+  //   if (x.style.display === "none") {
+  //     x.style.display = "block";
+  //   } else {
+  //     x.style.display = "none";
+  //   }
+  // }
+  //
+  // function toggle1() {
+  //   toggleDisplay("you");
+  // }
+  // function toggle2() {
+  //   toggleDisplay("comp");
+  // }
 </script>
