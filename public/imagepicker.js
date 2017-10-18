@@ -1,4 +1,4 @@
-var image = function imgPicker(playerMove) {
+function imgPicker(playerMove) {
   if (playerMove == "Rock") {
     return imgsrc = "images/rock.png"
   } else if (playerMove == "Scissors") {
@@ -8,4 +8,4 @@ var image = function imgPicker(playerMove) {
   }
 }
 
-module.exports = image;
+module.exports = imgPicker;

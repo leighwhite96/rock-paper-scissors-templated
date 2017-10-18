@@ -1,4 +1,4 @@
-var game = function RPS(playerMove, computerMove) {
+function RPS(playerMove, computerMove) {
   if (playerMove == computerMove) {
     return "It's a Draw!";
   } else if (playerMove == "Rock") {
@@ -22,4 +22,4 @@ var game = function RPS(playerMove, computerMove) {
   }
 }
 
-module.exports = game;
+module.exports = RPS;
