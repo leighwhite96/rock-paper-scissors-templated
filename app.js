@@ -1,14 +1,20 @@
+require(`dotenv`).config();
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var play = require('./routes/play');
+const config = require(`./config/config.js`)
 
 var app = express();
+
+mongoose.connect(config.dburl,{ useMongoClient: true });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +26,25 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: 'school of code secret',
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
+
+const requiredAuthentication = (req, res, next) => {
+  if (req.session.isAuthenticated){
+    next();
+  } else {
+    res.render('unauthorised');
+  }
+};
+
+app.use((req,res,next) => {
+  console.log(req.session);
+  next();
+});
 
 app.use('/', index);
 app.use('/play', play);
