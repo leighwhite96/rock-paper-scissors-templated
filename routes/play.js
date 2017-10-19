@@ -3,10 +3,7 @@ var router = express.Router();
 var generate = require('../public/index.js');
 var game = require('../public/index2.js');
 var img = require("../public/imagepicker.js");
-// var playerScore = require("../public/player-score.js");
-// var computerScore = require("../public/computer-score.js");
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render("play",{
     title: "Welcome to Rock, Paper, Scissors"
@@ -15,8 +12,13 @@ router.get('/', function(req, res, next) {
 
 var cScore = 0;
 var pScore = 0;
+// var sess;
 
 router.post('/',function(req,res,next){
+  // sess = req.session;
+  // var user = sess.username;
+
+
   var playerMove = req.body.playerMove.trim();
   var computerMove = generate();
   var imgsrc = img(playerMove);
@@ -30,7 +32,7 @@ router.post('/',function(req,res,next){
   }
 
   res.render("play",{
-    title: "Welcome to Rock, Paper, Scissors",
+    // name: user,
     player: playerMove,
     pic1: imgsrc,
     comp: computerMove,

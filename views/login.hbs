@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<br />
+<form class="form-group" action='/login' method="POST">
+  <label for="username"><input class="form-control" name="username" type="text" placeholder="username" /></label><br />
+  <label for="password"><br /><input class="form-control" name="password" type="password" placeholder="password"/></label>
+  <br />
+  <button class="btn btn-danger" type="submit">Login</button>
+</form>
+<br />
+<h3>{{logout}}</h3>
+<br />
+<br />
+<form action="/logout" method="POST">
+<button class="btn btn-danger" type="submit" >Log Out</button>
+</form>
