@@ -1,6 +1,6 @@
 <div id="rps">
 
-<h1 class="animated infinite pulse">{{title}}</h1>
+<h1 class="animated infinite pulse">{{title}}{{name}}</h1>
 Please enter 'Rock', 'Paper' or 'Scissors':
 <div class="container">
   <div class="row">
@@ -10,6 +10,9 @@ Please enter 'Rock', 'Paper' or 'Scissors':
         <input type="text" name="playerMove" class="form-control" />
         <br />
         <input type="submit" class="btn btn-danger" />
+      </form>
+      <form method="GET" action="/login">
+        <button class="btn btn-danger"/>Logout</button>
       </form>
     </div>
   </div>

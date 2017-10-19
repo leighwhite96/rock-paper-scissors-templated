@@ -9,8 +9,14 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 
 var index = require('./routes/index');
+var users = require('./routes/users');
 var play = require('./routes/play');
-const config = require(`./config/config.js`)
+var login = require('./routes/login');
+var register = require('./routes/register');
+var logout = require('./routes/logout');
+
+const config = require(`./config/config.js`);
+
 
 var app = express();
 
@@ -47,7 +53,11 @@ app.use((req,res,next) => {
 });
 
 app.use('/', index);
-app.use('/play', play);
+app.use('/play', requiredAuthentication, play);
+app.use('/login',login);
+app.use('/logout',logout);
+app.use('/register',register);
+app.use('/users',users)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
