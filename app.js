@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var mongoose = require('mongoose');
@@ -31,7 +31,7 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(session({
   secret: 'school of code secret',
   resave: false,
@@ -57,7 +57,7 @@ app.use('/play', requiredAuthentication, play);
 app.use('/login',login);
 app.use('/logout',logout);
 app.use('/register',register);
-app.use('/users',users)
+app.use('/users',requiredAuthentication,users)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

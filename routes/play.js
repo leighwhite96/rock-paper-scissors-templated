@@ -33,7 +33,7 @@ router.post('/',function(req,res,next){
 
   res.render("play",{
     // name: user,
-    player: playerMove,
+    // player: playerMove,
     pic1: imgsrc,
     comp: computerMove,
     pic2: imgsrc2,
